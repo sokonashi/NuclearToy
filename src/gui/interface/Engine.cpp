@@ -16,7 +16,7 @@
 using namespace ui;
 
 Engine::Engine():
-	FpsLimit(60.0f),
+	FpsLimit(120.0f),
 	Scale(1),
 	Fullscreen(false),
 	FrameIndex(0),
