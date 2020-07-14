@@ -31,9 +31,9 @@ void Element::Element_COAL()
 	Weight = 100;
 
 	HeatConduct = 200;
-	Description = "Coal, Burns very slowly. Gets red when hot.";
+	Description = "Coal, Burns very slowly. Can be used as a neutron moderator.";
 
-	Properties = TYPE_SOLID;
+	Properties = TYPE_SOLID | PROP_NEUTPASS;
 
 	LowPressure = IPL;
 	LowPressureTransition = NT;
@@ -53,6 +53,11 @@ void Element::Element_COAL()
 
 int Element_COAL_update(UPDATE_FUNC_ARGS)
 {
+	if (TYP(sim->photons[y][x]) == PT_NEUT) {
+		if (RNG::Ref().chance(1, 25))
+			sim->kill_part(ID(sim->photons[y][x]));
+	}
+
 	if (parts[i].life<=0) {
 		sim->create_part(i, x, y, PT_FIRE);
 		return 1;

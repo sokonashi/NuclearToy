@@ -143,14 +143,6 @@ static int update(UPDATE_FUNC_ARGS)
 					if (RNG::Ref().chance(3, 200))
 						sim->part_change_type(ID(r),x+rx,y+ry,PT_GAS);
 					break;
-				case PT_COAL:
-					if (RNG::Ref().chance(1, 20))
-						sim->create_part(ID(r), x+rx, y+ry, PT_WOOD);
-					break;
-				case PT_BCOL:
-					if (RNG::Ref().chance(1, 20))
-						sim->create_part(ID(r), x+rx, y+ry, PT_SAWD);
-					break;
 				case PT_DUST:
 					if (RNG::Ref().chance(1, 20))
 						sim->part_change_type(ID(r), x+rx, y+ry, PT_FWRK);

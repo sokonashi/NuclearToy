@@ -33,7 +33,7 @@ void Element::Element_BCOL()
 	HeatConduct = 150;
 	Description = "Broken Coal. Heavy particles, burns slowly.";
 
-	Properties = TYPE_PART;
+	Properties = TYPE_PART | PROP_NEUTPASS;
 
 	LowPressure = IPL;
 	LowPressureTransition = NT;
